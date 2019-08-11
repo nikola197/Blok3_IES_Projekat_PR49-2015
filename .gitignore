@@ -506,3 +506,4 @@ MigrationBackup/
 # End of https://www.gitignore.io/api/csharp,visualstudio
 
 *.ldb
+/Specifikacija_i_ostalo/eclipse/
