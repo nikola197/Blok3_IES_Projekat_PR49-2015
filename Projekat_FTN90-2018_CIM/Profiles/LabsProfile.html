@@ -78,7 +78,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#ACLineSegment">
 <h2 class="concrete">ACLineSegment</h2>
 </a>
-<p class="package"/>
+<p class="package">Wires</p>
 <p class="comment">A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.</p>
 <p class="comment">For symmetrical, transposed 3ph lines, it is sufficient to use  attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.</p>
 <h3>Native Members</h3>
@@ -149,6 +149,22 @@ p.package { position: absolute; right: 10px; top: 0px}
 </tr>
 <tr>
 <th>
+<p class="name" id="ACLineSegment.PerLengthImpedance">PerLengthImpedance</p>
+</th>
+<td>
+<p class="cardinality">0..1</p>
+</td>
+<td class="type">
+<p class="type">
+<a href="#PerLengthImpedance">PerLengthImpedance</a>
+</p>
+</td>
+<td>
+<p class="comment">Per-length impedance of this line segment.</p>
+</td>
+</tr>
+<tr>
+<th>
 <p class="name" id="ACLineSegment.r">r</p>
 </th>
 <td>
@@ -209,22 +225,6 @@ p.package { position: absolute; right: 10px; top: 0px}
 </td>
 <td>
 <p class="comment">Zero sequence series reactance of the entire line section.</p>
-</td>
-</tr>
-<tr>
-<th>
-<p class="name" id="ACLineSegment.PerLengthImpedance">PerLengthImpedance</p>
-</th>
-<td>
-<p class="cardinality">0..1</p>
-</td>
-<td class="type">
-<p class="type">
-<a href="#PerLengthImpedance">PerLengthImpedance</a>
-</p>
-</td>
-<td>
-<p class="comment">Per-length impedance of this line segment.</p>
 </td>
 </tr>
 </table>
@@ -321,7 +321,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#ConnectivityNode">
 <h2 class="concrete">ConnectivityNode</h2>
 </a>
-<p class="package"/>
+<p class="package">IES_Projects</p>
 <p class="comment">Connectivity nodes are points where terminals of conducting equipment are connected together with zero impedance.</p>
 <h3>Native Members</h3>
 <table>
@@ -407,7 +407,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#DCLineSegment">
 <h2 class="concrete">DCLineSegment</h2>
 </a>
-<p class="package"/>
+<p class="package">Wires</p>
 <p class="comment">A wire or combination of wires not insulated from one another, with consistent electrical characteristics, used to carry direct current between points in the DC region of the power system.</p>
 <h3>Inherited Members</h3>
 <table>
@@ -502,7 +502,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#PerLengthSequenceImpedance">
 <h2 class="concrete">PerLengthSequenceImpedance</h2>
 </a>
-<p class="package"/>
+<p class="package">IES_Projects</p>
 <p class="comment">Sequence impedance and admittance parameters per unit length, for transposed lines of 1, 2, or 3 phases. For 1-phase lines, define x=x0=xself. For 2-phase lines, define x=xs-xm and x0=xs+xm.</p>
 <h3>Native Members</h3>
 <table>
@@ -707,7 +707,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#SeriesCompensator">
 <h2 class="concrete">SeriesCompensator</h2>
 </a>
-<p class="package"/>
+<p class="package">IES_Projects</p>
 <p class="comment">A Series Compensator is a series capacitor or reactor or an AC transmission line without charging susceptance.  It is a two terminal device.</p>
 <h3>Native Members</h3>
 <table>
@@ -850,7 +850,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#Terminal">
 <h2 class="concrete">Terminal</h2>
 </a>
-<p class="package"/>
+<p class="package">Core</p>
 <p class="comment">An electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.</p>
 <h3>Native Members</h3>
 <table>
@@ -941,7 +941,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#ConductingEquipment">
 <h2 class="abstract">ConductingEquipment</h2>
 </a>
-<p class="package"/>
+<p class="package">IES_Projects</p>
 <p class="comment">The parts of the power system that are designed to carry current or that are conductively connected through terminals.</p>
 <h3>Native Members</h3>
 <table>
@@ -1017,7 +1017,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#Conductor">
 <h2 class="abstract">Conductor</h2>
 </a>
-<p class="package"/>
+<p class="package">Wires</p>
 <p class="comment">Combination of conducting material with consistent electrical characteristics, building a single electrical system, used to carry current between points in the power system.</p>
 <h3>Native Members</h3>
 <table>
@@ -1112,7 +1112,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#Equipment">
 <h2 class="abstract">Equipment</h2>
 </a>
-<p class="package"/>
+<p class="package">IES_Projects</p>
 <p class="comment">The parts of a power system that are physical devices, electronic or mechanical.</p>
 <h3>Inherited Members</h3>
 <table/>
@@ -1168,7 +1168,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#IdentifiedObject">
 <h2 class="abstract">IdentifiedObject</h2>
 </a>
-<p class="package"/>
+<p class="package">Core</p>
 <p class="comment">This is a root class to provide common identification for all classes needing identification and naming attributes.</p>
 <h3>Native Members</h3>
 <table>
@@ -1223,7 +1223,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#PerLengthImpedance">
 <h2 class="abstract">PerLengthImpedance</h2>
 </a>
-<p class="package"/>
+<p class="package">IES_Projects</p>
 <p class="comment">Common type for per-length impedance electrical catalogues.</p>
 <h3>Native Members</h3>
 <table>
@@ -1297,7 +1297,7 @@ p.package { position: absolute; right: 10px; top: 0px}
 <a href="#PowerSystemResource">
 <h2 class="abstract">PowerSystemResource</h2>
 </a>
-<p class="package"/>
+<p class="package">Core</p>
 <p class="comment">A power system resource can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.</p>
 <h3>Inherited Members</h3>
 <table>
@@ -1351,77 +1351,5 @@ p.package { position: absolute; right: 10px; top: 0px}
 <h1>Enumerations</h1>
 <h1>Compound Types</h1>
 <h1>Datatypes</h1>
-<div id="Conductance" class="group">
-<a href="#Conductance">
-<h2 class="domain">Conductance</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="ConductancePerLength" class="group">
-<a href="#ConductancePerLength">
-<h2 class="domain">ConductancePerLength</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="Length" class="group">
-<a href="#Length">
-<h2 class="domain">Length</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="Reactance" class="group">
-<a href="#Reactance">
-<h2 class="domain">Reactance</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="ReactancePerLength" class="group">
-<a href="#ReactancePerLength">
-<h2 class="domain">ReactancePerLength</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="Resistance" class="group">
-<a href="#Resistance">
-<h2 class="domain">Resistance</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="ResistancePerLength" class="group">
-<a href="#ResistancePerLength">
-<h2 class="domain">ResistancePerLength</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="Susceptance" class="group">
-<a href="#Susceptance">
-<h2 class="domain">Susceptance</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
-<div id="SusceptancePerLength" class="group">
-<a href="#SusceptancePerLength">
-<h2 class="domain">SusceptancePerLength</h2>
-</a>
-<p class="package"/>
-<p class="declaration">XSD type: <span class="xsdtype">string</span>
-</p>
-</div>
 </body>
 </html>
