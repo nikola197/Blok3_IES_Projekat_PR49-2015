@@ -1,0 +1,367 @@
+Profile: 
+* members of Package_Core
+	 #IdentifiedObject
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = IdentifiedObject
+		 subClassOf = 
+		 belongsToCategory = #Package_Core
+		 has Properties : 
+			IdentifiedObject.aliasName
+				 label = aliasName
+				 dataType = http://www.w3.org/2001/XMLSchema#string
+				 range = 
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			IdentifiedObject.mRID
+				 label = mRID
+				 dataType = http://www.w3.org/2001/XMLSchema#string
+				 range = 
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			IdentifiedObject.name
+				 label = name
+				 dataType = http://www.w3.org/2001/XMLSchema#string
+				 range = 
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+	 #PowerSystemResource
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = PowerSystemResource
+		 subClassOf = #IdentifiedObject
+		 belongsToCategory = #Package_Core
+	 #Terminal
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Terminal
+		 subClassOf = #IdentifiedObject
+		 belongsToCategory = #Package_Core
+		 has Properties : 
+			Terminal.ConductingEquipment
+				 label = ConductingEquipment
+				 dataType = 
+				 range = #ConductingEquipment
+				 multiplicity = M:1
+				 has Stereotypes : 
+					byreference
+
+			Terminal.ConnectivityNode
+				 label = ConnectivityNode
+				 dataType = 
+				 range = #ConnectivityNode
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					byreference
+
+* members of Package_Domain
+	 #Conductance
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Conductance
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #ConductancePerLength
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = ConductancePerLength
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #Length
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Length
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #Reactance
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Reactance
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #ReactancePerLength
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = ReactancePerLength
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #Resistance
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Resistance
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #ResistancePerLength
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = ResistancePerLength
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #Susceptance
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Susceptance
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+	 #SusceptancePerLength
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = SusceptancePerLength
+		 subClassOf = 
+		 belongsToCategory = #Package_Domain
+* members of Package_IEC61970
+* members of Package_IES_Projects
+	 #ConductingEquipment
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = ConductingEquipment
+		 subClassOf = #Equipment
+		 belongsToCategory = #Package_IES_Projects
+		 has Properties : 
+			ConductingEquipment.Terminals
+				 label = Terminals
+				 dataType = 
+				 range = #Terminal
+				 multiplicity = M:0..n
+
+	 #ConnectivityNode
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = ConnectivityNode
+		 subClassOf = #IdentifiedObject
+		 belongsToCategory = #Package_IES_Projects
+		 has Properties : 
+			ConnectivityNode.description
+				 label = description
+				 dataType = http://www.w3.org/2001/XMLSchema#string
+				 range = 
+				 multiplicity = M:1
+				 has Stereotypes : 
+					attribute
+
+			ConnectivityNode.Terminals
+				 label = Terminals
+				 dataType = 
+				 range = #Terminal
+				 multiplicity = M:0..n
+				 has Stereotypes : 
+					byreference
+
+	 #Equipment
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Equipment
+		 subClassOf = #PowerSystemResource
+		 belongsToCategory = #Package_IES_Projects
+	 #PerLengthImpedance
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = PerLengthImpedance
+		 subClassOf = #IdentifiedObject
+		 belongsToCategory = #Package_IES_Projects
+		 has Properties : 
+			PerLengthImpedance.ACLineSegments
+				 label = ACLineSegments
+				 dataType = 
+				 range = #ACLineSegment
+				 multiplicity = M:0..n
+				 has Stereotypes : 
+					byreference
+
+	 #PerLengthSequenceImpedance
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = PerLengthSequenceImpedance
+		 subClassOf = #PerLengthImpedance
+		 belongsToCategory = #Package_IES_Projects
+		 has Properties : 
+			PerLengthSequenceImpedance.b0ch
+				 label = b0ch
+				 dataType = 
+				 range = #SusceptancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.bch
+				 label = bch
+				 dataType = 
+				 range = #SusceptancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.g0ch
+				 label = g0ch
+				 dataType = 
+				 range = #ConductancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.gch
+				 label = gch
+				 dataType = 
+				 range = #ConductancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.r
+				 label = r
+				 dataType = 
+				 range = #ResistancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.r0
+				 label = r0
+				 dataType = 
+				 range = #ResistancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.x
+				 label = x
+				 dataType = 
+				 range = #ReactancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			PerLengthSequenceImpedance.x0
+				 label = x0
+				 dataType = 
+				 range = #ReactancePerLength
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+	 #SeriesCompensator
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = SeriesCompensator
+		 subClassOf = #ConductingEquipment
+		 belongsToCategory = #Package_IES_Projects
+		 has Properties : 
+			SeriesCompensator.r
+				 label = r
+				 dataType = 
+				 range = #Resistance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			SeriesCompensator.r0
+				 label = r0
+				 dataType = 
+				 range = #Resistance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			SeriesCompensator.x
+				 label = x
+				 dataType = 
+				 range = #Reactance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			SeriesCompensator.x0
+				 label = x0
+				 dataType = 
+				 range = #Reactance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+* members of Package_Wires
+	 #ACLineSegment
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = ACLineSegment
+		 subClassOf = #Conductor
+		 belongsToCategory = #Package_Wires
+		 has Properties : 
+			ACLineSegment.b0ch
+				 label = b0ch
+				 dataType = 
+				 range = #Susceptance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.bch
+				 label = bch
+				 dataType = 
+				 range = #Susceptance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.g0ch
+				 label = g0ch
+				 dataType = 
+				 range = #Conductance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.gch
+				 label = gch
+				 dataType = 
+				 range = #Conductance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.PerLengthImpedance
+				 label = PerLengthImpedance
+				 dataType = 
+				 range = #PerLengthImpedance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					byreference
+
+			ACLineSegment.r
+				 label = r
+				 dataType = 
+				 range = #Resistance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.r0
+				 label = r0
+				 dataType = 
+				 range = #Resistance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.x
+				 label = x
+				 dataType = 
+				 range = #Reactance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+			ACLineSegment.x0
+				 label = x0
+				 dataType = 
+				 range = #Reactance
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+	 #Conductor
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = Conductor
+		 subClassOf = #ConductingEquipment
+		 belongsToCategory = #Package_Wires
+		 has Properties : 
+			Conductor.length
+				 label = length
+				 dataType = 
+				 range = #Length
+				 multiplicity = M:0..1
+				 has Stereotypes : 
+					attribute
+
+	 #DCLineSegment
+		 type = http://www.w3.org/2000/01/rdf-schema#Class
+		 label = DCLineSegment
+		 subClassOf = #Conductor
+		 belongsToCategory = #Package_Wires
+
