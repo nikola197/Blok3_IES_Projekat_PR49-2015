@@ -105,6 +105,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Lib\LabsProfileCIMProfile_Labs.dll" />
     <Content Include="Lib\PowerTransformerCIMProfile_Labs.dll" />
   </ItemGroup>
   <ItemGroup />
