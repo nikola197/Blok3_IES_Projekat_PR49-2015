@@ -4,19 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Xml;
 using FTN.Common;
 
-
-
-namespace FTN.Services.NetworkModelService.DataModel.Core
+namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
-	public class PowerSystemResource : IdentifiedObject
-	{	
-		
-		public PowerSystemResource(long globalId) : base(globalId)
+	public class DCLineSegment : Conductor
+	{						
+		public DCLineSegment(long globalId) : base(globalId) 
 		{
-		}	
-
+		}
+	
 		public override bool Equals(object obj)
 		{
             return base.Equals(obj);
@@ -26,7 +24,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 		{
 			return base.GetHashCode();
 		}
-
 
         #region IAccess implementation		
         public override bool HasProperty(ModelCode property)
@@ -40,8 +37,8 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         public override void GetProperty(Property property)
         {
-            switch (property.Id) 
-            { 
+            switch (property.Id)
+            {
                 default:
                     base.GetProperty(property);
                     break;

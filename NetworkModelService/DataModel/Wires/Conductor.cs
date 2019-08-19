@@ -7,17 +7,40 @@ using System.Text;
 using System.Xml;
 using FTN.Common;
 
-namespace FTN.Services.NetworkModelService.DataModel.Core
+namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
-	public class Equipment : PowerSystemResource
-	{						
-		public Equipment(long globalId) : base(globalId) 
+	public class Conductor : Core.ConductingEquipment
+    {
+        private float length;
+
+		public Conductor(long globalId) : base(globalId) 
 		{
 		}
-	
-		public override bool Equals(object obj)
+
+        public float Length
+        {
+            get
+            {
+                return length;
+            }
+
+            set
+            {
+                length = value;
+            }
+        }
+
+        public override bool Equals(object obj)
 		{
-            return base.Equals(obj);
+            if (base.Equals(obj))
+            {
+                Conductor x = obj as Conductor;
+                return (x.length == this.length);
+            }
+            else
+            {
+                return false;
+            }
 		}
 
 		public override int GetHashCode()
@@ -30,6 +53,8 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         {
             switch (property)
             {
+                case ModelCode.CONDUCTOR_LEN:
+                    return true;
                 default:
                     return base.HasProperty(property);
             }
@@ -39,6 +64,9 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         {
             switch (property.Id)
             {
+                case ModelCode.CONDUCTOR_LEN:
+                    property.SetValue(length);
+                    break;
                 default:
                     base.GetProperty(property);
                     break;
@@ -49,6 +77,10 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         {
             switch (property.Id)
             {
+                case ModelCode.CONDUCTOR_LEN:
+                    length = property.AsFloat();
+                    break;
+
                 default:
                     base.SetProperty(property);
                     break;

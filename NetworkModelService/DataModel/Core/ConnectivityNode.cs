@@ -5,16 +5,32 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Xml;
+using System.Reflection;
 using FTN.Common;
 
 namespace FTN.Services.NetworkModelService.DataModel.Core
 {
-	public class ConductingEquipment : Equipment
-	{
+
+	public class ConnectivityNode : IdentifiedObject
+    {		
+		private string description = string.Empty;
         private List<long> terminals = new List<long>();
-			
-		public ConductingEquipment(long globalId) : base(globalId) 
+
+		public ConnectivityNode(long globalId) : base(globalId)
 		{
+		}
+
+		public string Description
+		{
+			get
+			{				
+				return description;
+			}
+
+			set
+			{			
+				description = value;
+			}
 		}
 
         public List<long> Terminals
@@ -29,67 +45,86 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             }
         }
 
-
-        public override bool Equals(object obj)
+		public override bool Equals(object obj)
 		{
             if (base.Equals(obj))
             {
-                ConductingEquipment x = obj as ConductingEquipment;
-                return CompareHelper.CompareLists(x.terminals, this.terminals);
+                ConnectivityNode x = (ConnectivityNode)obj;
+                return (x.description == this.description &&
+                        CompareHelper.CompareLists(x.terminals, this.terminals));
             }
             else
             {
                 return false;
             }
-
         }
-
+		
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
 		}
 
-		#region IAccess implementation
+		#region IAccess implementation		
 
 		public override bool HasProperty(ModelCode property)
 		{
-			switch (property)
+			switch(property)
 			{
-                case ModelCode.CONDEQ_TERMINALS:
+				case ModelCode.CONNODE_DESCRIPTION:
+                case ModelCode.CONNODE_TERMINALS:
 					return true;
 
 				default:
-					return base.HasProperty(property);
+                    return base.HasProperty(property);
 			}
 		}
 
-		public override void GetProperty(Property prop)
+		public override void GetProperty(Property property)
 		{
-			switch (prop.Id)
+			switch(property.Id)
 			{
-				case ModelCode.CONDEQ_TERMINALS:
-					prop.SetValue(terminals);
+				case ModelCode.CONNODE_DESCRIPTION:
+					property.SetValue(description);
 					break;
 
-				default:
-					base.GetProperty(prop);
+				case ModelCode.CONNODE_TERMINALS:
+					property.SetValue(terminals);
 					break;
-			}
+
+                default:
+                    base.GetProperty(property);
+                    break;
+            }
 		}
 
-        #endregion IAccess implementation
+		public override void SetProperty(Property property)
+		{
+			switch(property.Id)
+			{
+				case ModelCode.CONNODE_DESCRIPTION:
+					description = property.AsString();					
+					break;
 
-        #region IReference implementation
-        public override bool IsReferenced
-        {
-            get
-            {
-                return (terminals.Count > 0 || base.IsReferenced);
+                default:
+                    base.SetProperty(property);
+                    break;
             }
-        }
+		}
 
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-        {
+		#endregion IAccess implementation
+
+		#region IReference implementation	
+
+		public override bool IsReferenced
+		{
+			get
+			{
+                return (terminals.Count > 0 || base.IsReferenced);
+			}
+		}
+			
+		public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+		{
             if (terminals != null && terminals.Count != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
                 references[ModelCode.TERMINAL] = terminals.GetRange(0, terminals.Count);
@@ -98,8 +133,8 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             base.GetReferences(references, refType);
         }
 
-        public override void AddReference(ModelCode referenceId, long globalId)
-        {
+		public override void AddReference(ModelCode referenceId, long globalId)
+		{
             switch (referenceId)
             {
                 case ModelCode.TERMINAL:
@@ -112,8 +147,8 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             }
         }
 
-        public override void RemoveReference(ModelCode referenceId, long globalId)
-        {
+		public override void RemoveReference(ModelCode referenceId, long globalId)
+		{
             switch (referenceId)
             {
                 case ModelCode.TERMINAL:
@@ -135,6 +170,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             }
         }
 
-        #endregion IReference implementation
-    }
+		#endregion IReference implementation
+	}
 }
