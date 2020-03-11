@@ -1,0 +1,42 @@
+﻿<Window x:Class="Client_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client_UI"
+        mc:Ignorable="d"
+        Title="Blok3 Client" Height="486.825" Width="581.611" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,10,10">
+        <Grid Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="Choose function:" FontWeight="Bold" HorizontalAlignment="Left" Height="25" Margin="-5,0,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="RadioButton_GV" GroupName="function" Content="Get Values" Height="25" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,25,0,0" Checked="RadioButton_GV_Checked"/>
+            <RadioButton x:Name="RadioButton_GRV" GroupName="function" Content="Get Related Values" Height="25" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,50,0,0" Checked="RadioButton_GRV_Checked"/>
+            <RadioButton x:Name="RadioButton_GEV" GroupName="function" Content="Get Extent Values" Height="25" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,75,0,0" Checked="RadioButton_GEV_Checked"/>
+        </Grid>
+        <Grid Margin="125,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="170" Width="285">
+            <Label x:Name="Label_Properties" Content="Chose properties:" FontWeight="Bold" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="105"/>
+            <ListBox x:Name="ListBox_Properties" SelectionMode="Multiple" HorizontalAlignment="Left" Height="125" Margin="0,25,0,0" VerticalAlignment="Top" Width="275"/>
+        </Grid>
+        <Grid Margin="145,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Label Content="Type:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="-5,0,0,0"/>
+            <ComboBox x:Name="ComboBox_Types" Width="140" SelectionChanged="ComboBox_Types_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top" Height="25" Margin="0,25,0,0"/>
+            <Label Content="GID:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="-5,50,0,0"/>
+            <ComboBox x:Name="ComboBox_GID" Width="140" HorizontalAlignment="Right" VerticalAlignment="Top" Height="25" Margin="0,75,0,0"/>
+            <Label Content="Association properties:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="140" Margin="-5,100,0,0"/>
+            <ComboBox x:Name="ComboBox_AssocProps" Width="140" HorizontalAlignment="Right" VerticalAlignment="Top" Height="25" Margin="0,125,0,0" SelectionChanged="ComboBox_AssocProps_SelectionChanged" />
+        </Grid>
+        <Grid>
+            <Button Name="Button_OK" Content="OK" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="Button_OK_Click"/>
+            <Button Name="Button_Reset" Content="Reset" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="Button_Reset_Click"/>
+            <Button Name="Button_Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,160,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="Button_Exit_Click"/>
+        </Grid>
+        <Label Content="Result:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="-5,190,0,0"/>
+        <RichTextBox Name="RichTextBox_Result" Margin="0,215,0,0" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="225">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</Window>

@@ -760,5 +760,9 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 		{
 			GC.SuppressFinalize(this);
 		}
-	}
+
+        #region Custom methods
+
+        #endregion Custom methods
+    }
 }

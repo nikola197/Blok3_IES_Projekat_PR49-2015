@@ -53,11 +53,10 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         {
             switch (property)
             {
-                case ModelCode.ACLINESEG_R:
-                case ModelCode.ACLINESEG_R0:
-                case ModelCode.ACLINESEG_X:
-                case ModelCode.ACLINESEG_X0:
-                case ModelCode.ACLINESEG_PERLENIMP:
+                case ModelCode.SERCOMPENSATOR_R:
+                case ModelCode.SERCOMPENSATOR_R0:
+                case ModelCode.SERCOMPENSATOR_X:
+                case ModelCode.SERCOMPENSATOR_X0:
                     return true;
                 default:
                     return base.HasProperty(property);
@@ -68,16 +67,16 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         {
             switch (property.Id)
             {
-                case ModelCode.ACLINESEG_R:
+                case ModelCode.SERCOMPENSATOR_R:
                     property.SetValue(r);
                     break;
-                case ModelCode.ACLINESEG_R0:
+                case ModelCode.SERCOMPENSATOR_R0:
                     property.SetValue(r0);
                     break;
-                case ModelCode.ACLINESEG_X:
+                case ModelCode.SERCOMPENSATOR_X:
                     property.SetValue(x);
                     break;
-                case ModelCode.ACLINESEG_X0:
+                case ModelCode.SERCOMPENSATOR_X0:
                     property.SetValue(x0);
                     break;
 
@@ -91,16 +90,16 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         {
             switch (property.Id)
             {
-                case ModelCode.ACLINESEG_R:
+                case ModelCode.SERCOMPENSATOR_R:
                     r = property.AsFloat();
                     break;
-                case ModelCode.ACLINESEG_R0:
+                case ModelCode.SERCOMPENSATOR_R0:
                     r0 = property.AsFloat();
                     break;
-                case ModelCode.ACLINESEG_X:
+                case ModelCode.SERCOMPENSATOR_X:
                     x = property.AsFloat();
                     break;
-                case ModelCode.ACLINESEG_X0:
+                case ModelCode.SERCOMPENSATOR_X0:
                     x0 = property.AsFloat();
                     break;
 

@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Xml;
 using FTN.Common;
+using FTN.Services.NetworkModelService.DataModel.Core;
 
 namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
@@ -159,5 +160,20 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         }
 
         #endregion IAccess implementation
+
+        #region IReference implementation	
+
+        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+        {
+            if (perLenImp != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
+            {
+                references[ModelCode.ACLINESEG_PERLENIMP] = new List<long>();
+                references[ModelCode.ACLINESEG_PERLENIMP].Add(perLenImp);
+            }
+
+            base.GetReferences(references, refType);
+        }
+
+        #endregion IReference implementation
     }
 }

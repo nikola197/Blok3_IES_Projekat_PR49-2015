@@ -125,9 +125,9 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 			
 		public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
 		{
-            if (terminals != null && terminals.Count != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
+            if (terminals != null && terminals.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.TERMINAL] = terminals.GetRange(0, terminals.Count);
+                references[ModelCode.CONNODE_TERMINALS] = terminals.GetRange(0, terminals.Count);
             }
 
             base.GetReferences(references, refType);
@@ -137,7 +137,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 		{
             switch (referenceId)
             {
-                case ModelCode.TERMINAL:
+                case ModelCode.TERMINAL_CONNODE:
                     terminals.Add(globalId);
                     break;
 
@@ -151,7 +151,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 		{
             switch (referenceId)
             {
-                case ModelCode.TERMINAL:
+                case ModelCode.TERMINAL_CONNODE:
 
                     if (terminals.Contains(globalId))
                     {

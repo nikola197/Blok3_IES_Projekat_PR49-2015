@@ -126,14 +126,14 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 		{
             if (connode != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
             {
-                references[ModelCode.CONNODE_TERMINALS] = new List<long>();
-                references[ModelCode.CONNODE_TERMINALS].Add(connode);
+                references[ModelCode.TERMINAL_CONNODE] = new List<long>();
+                references[ModelCode.TERMINAL_CONNODE].Add(connode);
             }
 
             if (condeq != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
             {
-                references[ModelCode.CONDEQ] = new List<long>();
-                references[ModelCode.CONDEQ].Add(condeq);
+                references[ModelCode.TERMINAL_CONDEQ] = new List<long>();
+                references[ModelCode.TERMINAL_CONDEQ].Add(condeq);
             }
 
             base.GetReferences(references, refType);

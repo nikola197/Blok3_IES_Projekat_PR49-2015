@@ -104,7 +104,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 		{
             if (acLineSegments != null && acLineSegments.Count != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.TERMINAL] = acLineSegments.GetRange(0, acLineSegments.Count);
+                references[ModelCode.PERLENIMP_ACLINESEGS] = acLineSegments.GetRange(0, acLineSegments.Count);
             }
 
             base.GetReferences(references, refType);
@@ -114,7 +114,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 		{
             switch (referenceId)
             {
-                case ModelCode.ACLINESEG:
+                case ModelCode.ACLINESEG_PERLENIMP:
                     acLineSegments.Add(globalId);
                     break;
 
@@ -128,7 +128,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 		{
             switch (referenceId)
             {
-                case ModelCode.ACLINESEG:
+                case ModelCode.ACLINESEG_PERLENIMP:
 
                     if (acLineSegments.Contains(globalId))
                     {
