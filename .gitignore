@@ -509,3 +509,4 @@ MigrationBackup/
 *.ldb
 Specifikacija_i_ostalo/eclipse/
 Specifikacija_i_ostalo/CIMProfileLoaderApp/
+**/NetworkModelData.data

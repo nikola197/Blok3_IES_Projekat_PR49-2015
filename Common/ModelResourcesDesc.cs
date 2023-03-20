@@ -865,14 +865,14 @@ namespace FTN.Common
 		# region Initialization of metadata
 
 		private void InitializeTypeIdsInInsertOrder()
-		{			
+		{
+			typeIdsInInsertOrder.Add(ModelCode.PERLENSEQIMP);
 			typeIdsInInsertOrder.Add(ModelCode.CONNODE);
-			typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
+            typeIdsInInsertOrder.Add(ModelCode.SERCOMPENSATOR);
 			typeIdsInInsertOrder.Add(ModelCode.DCLINESEG);
 			typeIdsInInsertOrder.Add(ModelCode.ACLINESEG);
-            typeIdsInInsertOrder.Add(ModelCode.SERCOMPENSATOR);
-            typeIdsInInsertOrder.Add(ModelCode.PERLENSEQIMP);
-        }
+			typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
+		}
 
 		private void InitializeNotSettablePropertyIds()
 		{			

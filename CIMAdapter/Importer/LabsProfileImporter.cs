@@ -94,14 +94,14 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
 
             //// import all concrete model types (DMSType enum)
 
+            ImportPerLengthSequenceImpedances();
             ImportConnectivityNodes();
-            ImportTerminals();
             ImportSeriesCompensators();
             ImportDCLineSegments();
             ImportACLineSegments();
-            ImportPerLengthSequenceImpedances();
+            ImportTerminals();
 
-			LogManager.Log("Loading elements and creating delta completed.", LogLevel.Info);
+            LogManager.Log("Loading elements and creating delta completed.", LogLevel.Info);
 		}
 
 		#region Import

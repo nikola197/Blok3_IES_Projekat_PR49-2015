@@ -44,7 +44,16 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         }
 
-		public override int GetHashCode()
+        public override void SetProperty(Property property)
+        {
+            switch (property.Id)
+            {
+                default:
+                    base.SetProperty(property);
+                    break;
+            }
+        }
+        public override int GetHashCode()
 		{
 			return base.GetHashCode();
 		}
@@ -88,15 +97,15 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             }
         }
 
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-        {
-            if (terminals != null && terminals.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.CONDEQ_TERMINALS] = terminals.GetRange(0, terminals.Count);
-            }
+        //public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+        //{
+        //    if (terminals != null && terminals.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
+        //    {
+        //        references[ModelCode.CONDEQ_TERMINALS] = terminals.GetRange(0, terminals.Count);
+        //    }
 
-            base.GetReferences(references, refType);
-        }
+        //    base.GetReferences(references, refType);
+        //}
 
         public override void AddReference(ModelCode referenceId, long globalId)
         {

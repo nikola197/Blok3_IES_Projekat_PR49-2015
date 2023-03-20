@@ -100,15 +100,15 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 			}
 		}
 
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-		{
-            if (acLineSegments != null && acLineSegments.Count != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.PERLENIMP_ACLINESEGS] = acLineSegments.GetRange(0, acLineSegments.Count);
-            }
+  //      public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+		//{
+  //          if (acLineSegments != null && acLineSegments.Count != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
+  //          {
+  //              references[ModelCode.PERLENIMP_ACLINESEGS] = acLineSegments.GetRange(0, acLineSegments.Count);
+  //          }
 
-            base.GetReferences(references, refType);
-        }
+  //          base.GetReferences(references, refType);
+  //      }
 
 		public override void AddReference(ModelCode referenceId, long globalId)
 		{

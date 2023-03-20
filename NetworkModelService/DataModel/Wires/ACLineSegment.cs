@@ -129,7 +129,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
                     b0ch = property.AsFloat();
                     break;
                 case ModelCode.ACLINESEG_BCH:
-                    bch = property.AsFloat(); ;
+                    bch = property.AsFloat();
                     break;
                 case ModelCode.ACLINESEG_G0CH:
                     g0ch = property.AsFloat();
@@ -163,16 +163,16 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
 
         #region IReference implementation	
 
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-        {
-            if (perLenImp != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.ACLINESEG_PERLENIMP] = new List<long>();
-                references[ModelCode.ACLINESEG_PERLENIMP].Add(perLenImp);
-            }
+        //public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+        //{
+        //    if (perLenImp != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
+        //    {
+        //        references[ModelCode.ACLINESEG_PERLENIMP] = new List<long>();
+        //        references[ModelCode.ACLINESEG_PERLENIMP].Add(perLenImp);
+        //    }
 
-            base.GetReferences(references, refType);
-        }
+        //    base.GetReferences(references, refType);
+        //}
 
         #endregion IReference implementation
     }

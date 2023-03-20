@@ -25,6 +25,7 @@
 	<!-- TERMINAL -->
 	<cim:Terminal rdf:ID="T_1">
 		<cim:Terminal.ConnectivityNode rdf:resource="#CN_1"/>
+		<cim:Terminal.ConductingEquipment rdf:resource="#DCLS_1"/>
 		<cim:IdentifiedObject.mRID>T_1</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T_1</cim:IdentifiedObject.name>
 	</cim:Terminal>
@@ -46,19 +47,11 @@
 		<cim:IdentifiedObject.mRID>T_4</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T_4</cim:IdentifiedObject.name>
 	</cim:Terminal>
-	
-	<cim:Terminal rdf:ID="T_5">
-		<cim:Terminal.ConductingEquipment rdf:resource="ACLS_2"/>
-		<cim:Terminal.ConnectivityNode rdf:resource="CN_3"/>
-		<!-- <cim:IdentifiedObject.aliasName>T_5</cim:IdentifiedObject.aliasName> -->
-		<cim:IdentifiedObject.mRID>T_5</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>T_5</cim:IdentifiedObject.name>
-	</cim:Terminal>
 
 
 	<!-- ACLineSegment -->	
 	<cim:ACLineSegment rdf:ID="ACLS_2"> 
-		<cim:ACLineSegment.PerLengthImpedance rdf:resource="PLSI_1"/>
+		<cim:ACLineSegment.PerLengthImpedance rdf:resource="#PLSI_1"/>
 		<cim:ACLineSegment.b0ch>156</cim:ACLineSegment.b0ch>
 		<cim:ACLineSegment.bch >65</cim:ACLineSegment.bch>
 		<cim:ACLineSegment.g0ch>32</cim:ACLineSegment.g0ch>
@@ -78,6 +71,7 @@
 	<!-- DCLineSegment -->
 	<cim:DCLineSegment rdf:ID="DCLS_1">
 		<cim:Conductor.length>0.7</cim:Conductor.length>
+		<cim:ConductingEquipment.Terminals>T_1</cim:ConductingEquipment.Terminals>
 		<cim:IdentifiedObject.mRID>DCLS_1</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>DCLS_1</cim:IdentifiedObject.name>
 	</cim:DCLineSegment>
@@ -94,6 +88,7 @@
 		<cim:PerLengthSequenceImpedance.x0>7.8</cim:PerLengthSequenceImpedance.x0>
 		<cim:IdentifiedObject.mRID>PLSI_1</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>PLSI_1</cim:IdentifiedObject.name>
+		<!-- <cim:PerLengthImpedance.ACLineSegment rdf:resource="#ACLS_2"/> -->
 	</cim:PerLengthSequenceImpedance>
 
 	<!-- SeriesCompensator -->

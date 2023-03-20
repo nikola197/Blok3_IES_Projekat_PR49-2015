@@ -122,22 +122,22 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
 		#region IReference implementation	
         
-		public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-		{
-            if (connode != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.TERMINAL_CONNODE] = new List<long>();
-                references[ModelCode.TERMINAL_CONNODE].Add(connode);
-            }
+		//public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+		//{
+  //          if (connode != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
+  //          {
+  //              references[ModelCode.TERMINAL_CONNODE] = new List<long>();
+  //              references[ModelCode.TERMINAL_CONNODE].Add(connode);
+  //          }
 
-            if (condeq != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.TERMINAL_CONDEQ] = new List<long>();
-                references[ModelCode.TERMINAL_CONDEQ].Add(condeq);
-            }
+  //          if (condeq != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
+  //          {
+  //              references[ModelCode.TERMINAL_CONDEQ] = new List<long>();
+  //              references[ModelCode.TERMINAL_CONDEQ].Add(condeq);
+  //          }
 
-            base.GetReferences(references, refType);
-        }
+  //          base.GetReferences(references, refType);
+  //      }
 
 		#endregion IReference implementation
 	}

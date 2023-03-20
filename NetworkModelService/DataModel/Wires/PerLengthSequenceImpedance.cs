@@ -9,8 +9,8 @@ using FTN.Common;
 
 namespace FTN.Services.NetworkModelService.DataModel.Wires
 {
-	public class PerLengthSequenceImpedance : Core.ConductingEquipment
-	{
+	public class PerLengthSequenceImpedance : PerLengthImpedance
+    {
         private float b0ch;
         private float bch;
         private float g0ch;

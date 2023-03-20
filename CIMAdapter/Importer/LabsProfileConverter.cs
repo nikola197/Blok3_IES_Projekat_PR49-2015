@@ -59,7 +59,7 @@
             }
         }
 
-        public static void PopulatePowerSystemResourceProperties(FTN.PowerSystemResource cimPowerSystemResource, ResourceDescription rd)
+        public static void PopulatePowerSystemResourceProperties(FTN.PowerSystemResource cimPowerSystemResource, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         { 
             if ((cimPowerSystemResource != null) && (rd != null))
             {
@@ -80,11 +80,11 @@
             }
         }
 
-        public static void PopulateEquipmentProperties(FTN.Equipment cimEquipment, ResourceDescription rd)
+        public static void PopulateEquipmentProperties(FTN.Equipment cimEquipment, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         {
             if ((cimEquipment != null) && (rd != null))
             {
-                LabsProfileConverter.PopulatePowerSystemResourceProperties(cimEquipment, rd);
+                LabsProfileConverter.PopulatePowerSystemResourceProperties(cimEquipment, rd, importHelper, report);
             }
         }
 
@@ -92,12 +92,7 @@
         {
             if ((cimConductingEquipment != null) && (rd != null))
             {
-                LabsProfileConverter.PopulateEquipmentProperties(cimConductingEquipment, rd);
-
-                //if (cimConductingEquipment.TerminalsHasValue)
-                //{
-                //    rd.AddProperty(new Property(ModelCode.CONDEQ_TERMINALS, cimConductingEquipment.Terminals));
-                //}
+                LabsProfileConverter.PopulateEquipmentProperties(cimConductingEquipment, rd, importHelper, report);
             }
         }
 
@@ -160,6 +155,17 @@
                 {
                     rd.AddProperty(new Property(ModelCode.ACLINESEG_X0, cimACLineSegment.X0));
                 }
+
+                if (cimACLineSegment.PerLengthImpedanceHasValue)
+                {
+                    long gid = importHelper.GetMappedGID(cimACLineSegment.PerLengthImpedance.ID);
+                    if (gid < 0)
+                    {
+                        report.Report.Append("WARNING: Convert ").Append(cimACLineSegment.GetType().ToString()).Append(" rdfID = \"").Append(cimACLineSegment.ID);
+                        report.Report.Append("\" - Failed to set reference to PerLengthImpedance: rdfID \"").Append(cimACLineSegment.PerLengthImpedance.ID).AppendLine(" \" is not mapped to GID!");
+                    }
+                    rd.AddProperty(new Property(ModelCode.ACLINESEG_PERLENIMP, gid));
+                }
             }
         }
         public static void PopulateSeriesCompensatorProperties(FTN.SeriesCompensator cimSeriesCompensator, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
@@ -187,7 +193,7 @@
             }
         }
 
-        public static void PopulatePerLengthImpedanceProperties(FTN.PerLengthImpedance cimPerLengthImpedance, ResourceDescription rd)
+        public static void PopulatePerLengthImpedanceProperties(FTN.PerLengthImpedance cimPerLengthImpedance, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         {
             if ((cimPerLengthImpedance != null) && (rd != null))
             {
@@ -199,7 +205,7 @@
         {
             if ((cimPerLengthSequenceImpedance != null) && (rd != null))
             {
-                LabsProfileConverter.PopulateIdentifiedObjectProperties(cimPerLengthSequenceImpedance, rd);
+                LabsProfileConverter.PopulatePerLengthImpedanceProperties(cimPerLengthSequenceImpedance, rd, importHelper, report);
 
                 if (cimPerLengthSequenceImpedance.B0chHasValue)
                 {
